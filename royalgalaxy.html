@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Royal Galaxy | Restaurant in Chapra</title>
+
+  <style>
+    :root {
+      --black: #0d0c0a;
+      --dark: #151310;
+      --gold: #c7a86b;
+      --cream: #f5efe4;
+      --white: #ffffff;
+      --gray: #aaa398;
+      --border: rgba(255,255,255,0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(13,12,10,0.88);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 21px;
+      letter-spacing: 5px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #ddd;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .mobile-btn {
+      display: none;
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* BUTTON */
+
+    .btn {
+      display: inline-block;
+      padding: 13px 24px;
+      background: var(--gold);
+      color: #17130d;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      border: 1px solid var(--gold);
+      transition: .3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(199,168,107,.25);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.92),
+          rgba(0,0,0,.58),
+          rgba(0,0,0,.75)
+        ),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=85")
+        center/cover;
+    }
+
+    .hero-content {
+      padding-top: 80px;
+      max-width: 780px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(50px, 8vw, 110px);
+      line-height: .95;
+      font-weight: 500;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #ddd5ca;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      margin: 25px 0 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 110px 0;
+    }
+
+    .light {
+      background: var(--cream);
+      color: #16130e;
+    }
+
+    .section-title {
+      max-width: 700px;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(40px, 5vw, 65px);
+      font-weight: 500;
+      line-height: 1.05;
+    }
+
+    .section-title p {
+      font-family: Arial, sans-serif;
+      color: var(--gray);
+      margin-top: 18px;
+    }
+
+    /* ABOUT */
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 520px;
+      background:
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=85")
+        center/cover;
+    }
+
+    .about-text p {
+      font-family: Arial, sans-serif;
+      color: #777067;
+      margin: 22px 0 28px;
+    }
+
+    /* EXPERIENCE */
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .experience-card {
+      height: 350px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      background-position: center;
+      background-size: cover;
+      overflow: hidden;
+    }
+
+    .experience-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        transparent 25%,
+        rgba(0,0,0,.9)
+      );
+    }
+
+    .experience-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-card h3 {
+      font-size: 35px;
+      font-weight: 500;
+    }
+
+    .experience-card p {
+      font-family: Arial, sans-serif;
+      color: #ccc;
+    }
+
+    /* MENU */
+
+    #menu {
+      background: #12100d;
+    }
+
+    .menu-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .menu-tab {
+      padding: 11px 20px;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      transition: .3s;
+    }
+
+    .menu-tab:hover,
+    .menu-tab.active {
+      background: var(--gold);
+      color: #17130d;
+      border-color: var(--gold);
+    }
+
+    .menu-category {
+      margin-bottom: 45px;
+    }
+
+    .menu-category h3 {
+      color: var(--gold);
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 0 50px;
+    }
+
+    .menu-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      color: #eee;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* INSTAGRAM */
+
+    .instagram {
+      background: #0a0908;
+      text-align: center;
+    }
+
+    .instagram-box {
+      max-width: 750px;
+      margin: auto;
+      padding: 65px 25px;
+      border: 1px solid var(--border);
+      background: linear-gradient(145deg,#1a1814,#0c0b09);
+    }
+
+    .instagram-icon {
+      font-size: 45px;
+      color: var(--gold);
+      margin-bottom: 15px;
+    }
+
+    .instagram h2 {
+      font-size: 45px;
+      font-weight: 500;
+    }
+
+    .instagram p {
+      max-width: 600px;
+      margin: 15px auto 28px;
+      font-family: Arial, sans-serif;
+      color: var(--gray);
+    }
+
+    /* VISIT */
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 22px;
+    }
+
+    .info-card {
+      padding: 35px;
+      background: #191714;
+      border: 1px solid var(--border);
+    }
+
+    .info-card h3 {
+      color: var(--gold);
+      margin-bottom: 13px;
+      font-size: 20px;
+    }
+
+    .info-card p {
+      font-family: Arial, sans-serif;
+      color: #ddd;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #080706;
+      padding: 60px 0 25px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      letter-spacing: 4px;
+    }
+
+    footer p,
+    footer a {
+      font-family: Arial, sans-serif;
+      color: #aaa;
+      font-size: 14px;
+      margin: 6px 0;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    .copyright {
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+      padding-top: 20px;
+    }
+
+    /* ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: 1s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MOBILE */
+
+    @media(max-width:800px) {
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: #11100e;
+        padding: 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .mobile-btn {
+        display: block;
+      }
+
+      header .btn {
+        display: none;
+      }
+
+      .split,
+      .visit-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-list {
+        grid-template-columns: 1fr;
+      }
+
+      .about-image {
+        height: 380px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(48px,15vw,75px);
+      }
+
+      .instagram h2 {
+        font-size: 35px;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+  <div class="container">
+    <nav>
+
+      <a href="#home" class="logo">
+        ROYAL GALAXY
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About Us</a>
+        <a href="#visit">Visit Us</a>
+      </div>
+
+      <a href="#visit" class="btn">
+        Visit Us
+      </a>
+
+      <button class="mobile-btn" id="mobileBtn">
+        ☰
+      </button>
+
+    </nav>
+  </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="container hero-content">
+
+    <div class="eyebrow">
+      Royal Galaxy · Chapra, Bihar
+    </div>
+
+    <h1>
+      A Taste Worth Coming Back For
+    </h1>
+
+    <p>
+      Discover Royal Galaxy, a local dining destination in Chapra
+      serving satisfying meals for lunch, dinner, and brunch.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a href="#menu" class="btn">
+        Explore Menu
+      </a>
+
+      <a href="#visit" class="btn btn-outline">
+        Visit Us
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="light" id="about">
+
+  <div class="container split reveal">
+
+    <div class="about-image"></div>
+
+    <div class="about-text">
+
+      <div class="eyebrow">
+        About Royal Galaxy
+      </div>
+
+      <h2>
+        Good Food. Comfortable Moments.
+      </h2>
+
+      <p>
+        Located near Rajendra College on Gudri Main Road,
+        Royal Galaxy brings together a welcoming local dining
+        experience for visitors in Chapra.
+      </p>
+
+      <p>
+        Whether you're stopping by for brunch, lunch, or dinner,
+        Royal Galaxy is a convenient local place to enjoy a meal.
+      </p>
+
+      <a href="#visit" class="btn">
+        Discover Royal Galaxy
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- DINING -->
+
+<section>
+
+  <div class="container reveal">
+
+    <div class="section-title">
+
+      <div class="eyebrow">
+        Dining Experience
+      </div>
+
+      <h2>
+        Made for Every Meal
+      </h2>
+
+      <p>
+        From a relaxed brunch to a satisfying lunch or an
+        evening dinner, Royal Galaxy is open throughout the
+        day for local diners.
+      </p>
+
+    </div>
+
+
+    <div class="experience-grid">
+
+      <div class="experience-card"
+        style="background-image:url('https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=900&q=80')">
+
+        <h3>Brunch</h3>
+
+        <p>
+          A relaxed option for visitors looking to enjoy
+          a meal during the day.
+        </p>
+
+      </div>
+
+
+      <div class="experience-card"
+        style="background-image:url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80')">
+
+        <h3>Lunch</h3>
+
+        <p>
+          A satisfying dining option for midday visitors.
+        </p>
+
+      </div>
+
+
+      <div class="experience-card"
+        style="background-image:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80')">
+
+        <h3>Dinner</h3>
+
+        <p>
+          A welcoming evening dining experience.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section id="menu">
+
+  <div class="container reveal">
+
+    <div class="section-title">
+
+      <div class="eyebrow">
+        Royal Galaxy Menu
+      </div>
+
+      <h2>
+        Explore Our Menu
+      </h2>
+
+      <p>
+        Discover the food and beverage selection at Royal Galaxy.
+      </p>
+
+    </div>
+
+
+    <div class="menu-tabs">
+
+      <button class="menu-tab active" data-filter="all">
+        All
+      </button>
+
+      <button class="menu-tab" data-filter="veg">
+        Veg
+      </button>
+
+      <button class="menu-tab" data-filter="nonveg">
+        Non-Veg
+      </button>
+
+      <button class="menu-tab" data-filter="beverages">
+        Beverages
+      </button>
+
+    </div>
+
+
+    <!-- VEG -->
+
+    <div class="menu-category" data-type="veg">
+
+      <h3>
+        Veg
+      </h3>
+
+      <div class="menu-list">
+
+        <div class="menu-item">
+          Paneer Butter Masala
+        </div>
+
+        <div class="menu-item">
+          Shahi Paneer
+        </div>
+
+        <div class="menu-item">
+          Kadai Paneer
+        </div>
+
+        <div class="menu-item">
+          Dal Tadka
+        </div>
+
+        <div class="menu-item">
+          Mix Veg
+        </div>
+
+        <div class="menu-item">
+          Veg Fried Rice
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- NON VEG -->
+
+    <div class="menu-category" data-type="nonveg">
+
+      <h3>
+        Non-Veg
+      </h3>
+
+      <div class="menu-list">
+
+        <div class="menu-item">
+          Chicken Curry
+        </div>
+
+        <div class="menu-item">
+          Chicken Masala
+        </div>
+
+        <div class="menu-item">
+          Chicken Biryani
+        </div>
+
+        <div class="menu-item">
+          Egg Curry
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- BEVERAGES -->
+
+    <div class="menu-category" data-type="beverages">
+
+      <h3>
+        Beverages
+      </h3>
+
+      <div class="menu-list">
+
+        <div class="menu-item">
+          Tea
+        </div>
+
+        <div class="menu-item">
+          Coffee
+        </div>
+
+        <div class="menu-item">
+          Cold Drinks
+        </div>
+
+        <div class="menu-item">
+          Fresh Juice
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- INSTAGRAM -->
+
+<section class="instagram reveal">
+
+  <div class="container">
+
+    <div class="instagram-box">
+
+      <div class="instagram-icon">
+        ◎
+      </div>
+
+      <div class="eyebrow">
+        Instagram
+      </div>
+
+      <h2>
+        @royalgalaxychapra
+      </h2>
+
+      <p>
+        Follow Royal Galaxy for the latest moments,
+        food, and updates from our restaurant.
+      </p>
+
+      <a
+        href="https://www.instagram.com/royalgalaxychapra/"
+        target="_blank"
+        rel="noopener"
+        class="btn">
+
+        Follow on Instagram
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- VISIT US -->
+
+<section id="visit">
+
+  <div class="container reveal">
+
+    <div class="section-title">
+
+      <div class="eyebrow">
+        Visit Royal Galaxy
+      </div>
+
+      <h2>
+        Come Visit Royal Galaxy
+      </h2>
+
+      <p>
+        Find us on Gudri Main Road, near Rajendra College
+        and Takkad Morde, Chapra.
+      </p>
+
+    </div>
+
+
+    <div class="visit-grid">
+
+
+      <div class="info-card">
+
+        <h3>
+          Location
+        </h3>
+
+        <p>
+          Main Road, Gudri Main Road<br>
+          Near Rajendra College, Takkad Morde<br>
+          Chapra, Bihar 841301
+        </p>
+
+        <br>
+
+        <a
+          class="btn"
+          target="_blank"
+          rel="noopener"
+          href="https://www.google.com/maps/search/?api=1&query=Royal+Galaxy+Main+Road+Gudri+Main+Road+near+Rajendra+College+Takkad+Morde+Chapra+Bihar+841301">
+
+          Get Directions
+
+        </a>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <h3>
+          Opening Hours
+        </h3>
+
+        <p>
+          Typically Open<br>
+          <strong>
+            9:00 AM – 10:00 PM
+          </strong>
+        </p>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <h3>
+          Contact
+        </h3>
+
+        <p>
+          +91 93046 50339
+        </p>
+
+        <br>
+
+        <a
+          href="tel:+919304650339"
+          class="btn">
+
+          Call Royal Galaxy
+
+        </a>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <h3>
+          Instagram
+        </h3>
+
+        <p>
+          Follow @royalgalaxychapra
+          for the latest moments and updates.
+        </p>
+
+        <br>
+
+        <a
+          href="https://www.instagram.com/royalgalaxychapra/"
+          target="_blank"
+          rel="noopener"
+          class="btn">
+
+          Follow on Instagram
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <h3>
+          ROYAL GALAXY
+        </h3>
+
+        <br>
+
+        <p>
+          Main Road, Gudri Main Road,
+          near Rajendra College,
+          Takkad Morde,
+          Chapra, Bihar 841301
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3 style="font-size:16px">
+          NAVIGATION
+        </h3>
+
+        <br>
+
+        <p><a href="#home">Home</a></p>
+        <p><a href="#menu">Menu</a></p>
+        <p><a href="#about">About Us</a></p>
+        <p><a href="#visit">Visit Us</a></p>
+
+      </div>
+
+
+      <div>
+
+        <h3 style="font-size:16px">
+          CONNECT
+        </h3>
+
+        <br>
+
+        <p>
+          <a href="tel:+919304650339">
+            +91 93046 50339
+          </a>
+        </p>
+
+        <p>
+          9:00 AM – 10:00 PM
+        </p>
+
+        <p>
+          <a
+            href="https://www.instagram.com/royalgalaxychapra/"
+            target="_blank"
+            rel="noopener">
+
+            @royalgalaxychapra
+
+          </a>
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      <p>
+        © Royal Galaxy. All rights reserved.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+  /* MOBILE NAVIGATION */
+
+  const mobileBtn =
+    document.getElementById("mobileBtn");
+
+  const navLinks =
+    document.getElementById("navLinks");
+
+  mobileBtn.addEventListener("click", function() {
+
+    navLinks.classList.toggle("open");
+
+    if(navLinks.classList.contains("open")) {
+      mobileBtn.textContent = "×";
+    } else {
+      mobileBtn.textContent = "☰";
+    }
+
+  });
+
+
+  /* CLOSE MOBILE MENU */
+
+  document.querySelectorAll(".nav-links a")
+  .forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+      navLinks.classList.remove("open");
+
+      mobileBtn.textContent = "☰";
+
+    });
+
+  });
+
+
+  /* MENU FILTER */
+
+  const tabs =
+    document.querySelectorAll(".menu-tab");
+
+  const categories =
+    document.querySelectorAll(".menu-category");
+
+
+  tabs.forEach(function(tab) {
+
+    tab.addEventListener("click", function() {
+
+      tabs.forEach(function(item) {
+        item.classList.remove("active");
+      });
+
+      tab.classList.add("active");
+
+      const filter =
+        tab.getAttribute("data-filter");
+
+
+      categories.forEach(function(category) {
+
+        const type =
+          category.getAttribute("data-type");
+
+        if(filter === "all" || filter === type) {
+
+          category.classList.remove("hidden");
+
+        } else {
+
+          category.classList.add("hidden");
+
+        }
+
+      });
+
+    });
+
+  });
+
+
+  /* SCROLL ANIMATION */
+
+  const observer =
+    new IntersectionObserver(
+      function(entries) {
+
+        entries.forEach(function(entry) {
+
+          if(entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+
+  document
+    .querySelectorAll(".reveal")
+    .forEach(function(element) {
+
+      observer.observe(element);
+
+    });
+
+</script>
+
+</body>
+</html>
